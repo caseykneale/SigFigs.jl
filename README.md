@@ -27,4 +27,4 @@ julia> SigFigs.significantfigures( SigFig(45.72, 4) * (1/3) )
 *Oh whew* - all is well with the universe. Thanks SigFigs.jl!
 
 # Caveats
-Basic operations with `SigFigs` instances (+,-,\*,\/,\%, cos, sin, asin, exp, log, etc) and some collections (transpose, matrix multiply, etc) are currently supported. You likely will find rough patches. Report any bugs, unexpected behaviours,
+Basic operations with `SigFigs` instances (+,-,\*,\/,\%, cos, sin, asin, exp, log, etc) and some collections (transpose, matrix multiply, etc) are currently supported. You likely will find rough patches. Report any bugs, unexpected behaviours, etc.
