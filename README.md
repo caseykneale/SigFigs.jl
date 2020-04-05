@@ -15,14 +15,16 @@ Say you want to know how large 1/3 of the diameter of a pizza is. You measure th
 julia> 45.72 * (1/3)
 15.239999999999998
 ```
-No! Wrong. Nope! How could we possibly say anything about how many micrometers or nanometers the pizza is with our current measuring implement? We can't! SigFigs.jl what ever shall we do? Bah bah buh bahhhh
+No! Wrong. Nope! How could we possibly say anything about how many micrometers or nanometers the pizza is with our current measuring implement? We can't! *SigFigs.jl what ever shall we do?*
+
+**Bah bah buh bahhhh**
 ```Julia
 using SigFigs
 julia> SigFigs.significantfigures( SigFig(45.72, 4) * (1/3) )
 15.24
 ```
 
-Oh whew - all is well with the universe. Thanks SigFigs.jl!
+*Oh whew* - all is well with the universe. Thanks SigFigs.jl!
 
-#Caveats
+# Caveats
 Basic operations with `SigFigs` instances (+,-,\*,\/,\%, cos, sin, asin, exp, log, etc) and some collections (transpose, matrix multiply, etc) are currently supported. You likely will find rough patches. Report any bugs, unexpected behaviours,
