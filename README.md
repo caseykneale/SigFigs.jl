@@ -7,7 +7,7 @@
 [![Build Status](https://api.cirrus-ci.com/github/caseykneale/SigFigs.jl.svg)](https://cirrus-ci.com/github/caseykneale/SigFigs.jl)
 
 
-#Overview
+# Overview
 Significant Figures (AKA `SigFigs`) are a mathematical means that ensures that derived values do not possess more information then they *actually* do. Think about it like this:
 
 Say you want to know how large 1/3 of the diameter of a pizza is. You measure this pizza to be 45.72(+/-0.01) cm with a meter stick. So let's do the math
