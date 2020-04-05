@@ -7,7 +7,7 @@ module SigFigs
 
     Base.:(==)( a::SigFig, b::SigFig )::Bool = ( a.value == b.value ) && ( a.figures == b.figures )
 
-    signficantfigures(a::SigFig) = round(a.value, sigdigits = a.figures)
+    significantfigures(a::SigFig) = round(a.value, sigdigits = a.figures)
 
     SigFig( values::AbstractArray{Real}, figures::UInt )::AbstractArray{SigFig} = [ SigFig(v, figures) for v in values ]
     vals( sfs::AbstractArray{SigFig} ) = map( sf -> sf.value, sfs )
