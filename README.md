@@ -12,15 +12,15 @@ Significant Figures (AKA `SigFigs`) are a mathematical means that ensures that d
 
 Say you want to know how large 1/3 of the diameter of a pizza is. You measure this pizza to be 45.72(+/-0.01) cm with a meter stick. So let's do the math
 ```Julia
-julia> 45.72 * (1/3)
-15.239999999999998
+julia> 45.73 * (1/3)
+15.243333333333332
 ```
 No! Wrong. Nope! How could we possibly say anything about how many micrometers or nanometers the pizza is with our current measuring implement? We can't! *SigFigs.jl what ever shall we do?*
 
 **Bah bah buh bahhhh**
 ```Julia
 using SigFigs
-julia> SigFigs.significantfigures( SigFig(45.72, 4) * (1/3) )
+julia> SigFigs.significantfigures( SigFig(45.73, 4) * (1/3) )
 15.24
 ```
 
@@ -30,11 +30,12 @@ julia> SigFigs.significantfigures( SigFig(45.72, 4) * (1/3) )
 Basic operations with `SigFigs` instances (+,-,\*,\/,\%, cos, sin, asin, exp, log, sqrt, etc) and some collections (transpose, matrix multiply, etc) are currently supported. You likely will find rough patches. Report any bugs, unexpected behaviours, etc.
 
 ## Is this the right tool for you?
-I facetiously posted an announcement of this package in Julia Slack. Let's be honest this is a pretty underwhelming contribution. Someone replied, something to the effect of "Doesn't [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl) already do this?", and offered the following snippit of code:
+I facetiously posted an announcement of this package in Julia Slack. Let's be honest this is a pretty underwhelming contribution. Someone replied, something to the effect of "Doesn't [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl) already do this?", and offered the following snipit:
 ``` Julia
 using Measurements
-julia> (45.72 ± 0.01) * (1/3)
-15.24 ± 0.0033
+julia> (45.73 ± 0.01) * (1/3)
+15.2433 ± 0.0033
 ```
+*Note: Measurements.jl will display uncertainty to 2 decimal places.*
 
 So I must say, as I always do, I love [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl)! And yes, it will give the proper significant figures for most linear operations of a `Measurements` instance if the uncertainties are known. But, there are MANY cases where an uncertainty is not known, or requires tremendous amount of work to even ballpark estimate. Similarly, there are many cases where running Measurements.jl has a significant over-head. In those cases it may be preferred to only bother with the significant figures of a calculation. So its a pragmatic way of handling certain calculations without going deep into the weeds. If the order of magnitude estimate is off from a desired application, was it really worth tabulating all of the uncertainties in a complicated process?
